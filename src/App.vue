@@ -1,5 +1,12 @@
 <template>
-  <todo-item />
+  <div id="app">
+  <h1>To-Do List</h1>
+  <ul>
+    <li>
+      <todo-item label="todo-item" :done="true"></todo-item>
+    </li>
+  </ul>
+</div>
 </template>
 
 <script>

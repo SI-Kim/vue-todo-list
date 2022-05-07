@@ -1,10 +1,20 @@
 <template>
     <div>
-        <input type="checkbox" id="todo-item" checked="false" />
-        <label for="todo-item">My Todo Item</label>
+        <input type="checkbox" id="todo-item" v-bind:checked="isDone" />
+        <label for="todo-item" id="todo-item" :checked="isDone">{{label}}</label>
     </div>
 </template>
 
 <script>
-    export default {};
+    export default {
+        props : {
+            label: { required: true, type: String },
+            done: { default: false, type: Boolean }
+        },
+        data() {
+            return {
+                isDone: this.done
+            }
+        }
+    };
 </script>
