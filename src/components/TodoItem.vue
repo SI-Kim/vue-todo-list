@@ -1,11 +1,12 @@
 <template>
     <div>
-        <input type="checkbox" id="todo-item" v-bind:checked="isDone" />
-        <label for="todo-item" id="todo-item" :checked="isDone">{{label}}</label>
+        <input type="checkbox" :id="id" v-bind:checked="isDone" />
+        <label :for="id">{{label}}</label>
     </div>
 </template>
 
 <script>
+    import uniqueId from 'lodash.uniqueid';
     export default {
         props : {
             label: { required: true, type: String },
@@ -13,7 +14,8 @@
         },
         data() {
             return {
-                isDone: this.done
+                isDone: this.done,
+                id: uniqueId('todo-')
             }
         }
     };
